@@ -69,3 +69,9 @@ const cardInfo = (places) => {
       </li>
   `;
 };
+
+const render = (payload) => {
+  ticketCardArea.innerHTML = payload.reduce((pre, cur) => pre + cardInfo(cur), '');
+};
+
+render(data);
