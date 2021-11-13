@@ -79,35 +79,24 @@ const render = (payload = data) => {
 };
 
 const addTicket = (e) => {
-  // e.preventDefault();
-  // console.log(e.path[1]);
   const inputData = {
-    name: document.querySelector('#ticketName').value.trim(),
-    imgUrl: document.querySelector('#ticketImgUrl'),
-    area: document.querySelector('#ticketRegion'),
-    productDescription: document.querySelector('#ticketDescription'),
-    productAmount: document.querySelector('#ticketNum'),
-    ticketPrice: document.querySelector('#ticketPrice'),
-    productRate: document.querySelector('#ticketRate'),
-  };
-  console.log(inputData);
-
-  const objAdd = {
     id: Date.now(),
+    name: document.querySelector('#ticketName').value.trim(),
+    imgUrl: document.querySelector('#ticketImgUrl').value,
+    area: document.querySelector('#ticketRegion').value,
+    group: Number(document.querySelector('#ticketNum').value),
+    price: Number(document.querySelector('#ticketPrice').value),
+    rate: Number(document.querySelector('#ticketRate').value),
+    description: document.querySelector('#ticketDescription').value,
   };
+  // console.log(inputData);
 
-  inputData.forEach((item) => {
-    objAdd[item['name']] = item.value.trim();
-  });
+  // const objAdd = {};
 
-  objAdd.group = Number(objAdd.group);
-  objAdd.price = Number(objAdd.price);
-  objAdd.rate = Number(objAdd.rate);
-
-  data.push(objAdd);
+  data.push(inputData);
 
   regionSearch.value = '';
-  // render(data);
+  render(data);
   formAddTicket.reset();
 };
 
