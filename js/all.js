@@ -89,15 +89,18 @@ const addTicket = (e) => {
     rate: Number(document.querySelector('#ticketRate').value),
     description: document.querySelector('#ticketDescription').value,
   };
-  // console.log(inputData);
 
-  // const objAdd = {};
+  // 檢查屬性是否有值
+  if (Object.values(inputData).every((v) => !!v)) {
+    data.push(inputData);
 
-  data.push(inputData);
-
-  regionSearch.value = '';
-  render(data);
-  formAddTicket.reset();
+    regionSearch.value = '';
+    render(data);
+    formAddTicket.reset();
+  } else {
+    alert('請填寫完整資料');
+    formAddTicket.reset();
+  }
 };
 
 const dropDownSelect = () => {};

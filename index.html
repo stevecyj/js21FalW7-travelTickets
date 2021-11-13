@@ -21,7 +21,13 @@
         <div class="form-group">
           <div class="addTicket-input">
             <label for="ticketName">套票名稱</label>
-            <input type="text" id="ticketName" placeholder="請填寫套票名稱" name="套票名稱" />
+            <input
+              type="text"
+              id="ticketName"
+              placeholder="請填寫套票名稱"
+              name="套票名稱"
+              required
+            />
           </div>
           <div class="alert-message">
             <p id="ticketName-message" data-message="套票名稱">
@@ -33,7 +39,13 @@
         <div class="form-group">
           <div class="addTicket-input">
             <label for="ticketImgUrl">圖片網址</label>
-            <input type="text" id="ticketImgUrl" placeholder="請填寫圖片網址" name="圖片網址" />
+            <input
+              type="text"
+              id="ticketImgUrl"
+              placeholder="請填寫圖片網址"
+              name="圖片網址"
+              required
+            />
           </div>
           <div class="alert-message">
             <p id="ticketImgUrl-message" data-message="圖片網址">
@@ -68,6 +80,7 @@
               placeholder="請填寫套票金額"
               name="套票金額"
               min="0"
+              required
             />
           </div>
           <div class="alert-message">
@@ -86,6 +99,7 @@
               placeholder="請填寫套票組數"
               name="套票組數"
               min="1"
+              required
             />
           </div>
           <div class="alert-message">
@@ -105,6 +119,7 @@
               name="套票星級"
               min="1"
               max="10"
+              required
             />
           </div>
           <div class="alert-message">
@@ -121,6 +136,7 @@
               name="套票描述"
               id="ticketDescription"
               placeholder="請填寫套票描述 (限 100 字)"
+              required
             ></textarea>
           </div>
           <div class="alert-message">
