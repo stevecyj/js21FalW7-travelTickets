@@ -40,6 +40,7 @@ const ticketCardArea = document.querySelector('.ticketCard-area');
 const regionSearch = document.querySelector('.regionSearch');
 const btnAddTicket = document.querySelector('.addTicket-btn');
 const formAddTicket = document.querySelector('.addTicket-form');
+const searchResultNum = document.querySelector('#searchResult-text');
 
 const cardInfo = (places) => {
   return `
@@ -76,6 +77,7 @@ const cardInfo = (places) => {
 
 const render = (payload = data) => {
   ticketCardArea.innerHTML = payload.reduce((pre, cur) => pre + cardInfo(cur), '');
+  searchResultNum.innerHTML = `本次搜尋共${payload.length}筆資料`;
 };
 
 const addTicket = (e) => {
@@ -103,7 +105,11 @@ const addTicket = (e) => {
   }
 };
 
-const dropDownSelect = () => {};
+const dropDownSelect = (e) => {
+  const city = e.target.value;
+  selectedCity = data.filter((item) => item.area === city);
+  city === '' ? render() : render(selectedCity);
+};
 
 btnAddTicket.addEventListener('click', addTicket);
 regionSearch.addEventListener('change', dropDownSelect);
