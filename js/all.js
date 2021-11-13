@@ -70,8 +70,8 @@ const cardInfo = (places) => {
   `;
 };
 
-const render = (payload) => {
+const render = (payload = data) => {
   ticketCardArea.innerHTML = payload.reduce((pre, cur) => pre + cardInfo(cur), '');
 };
 
-render(data);
+render();
