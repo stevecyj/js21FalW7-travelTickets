@@ -75,6 +75,14 @@ const cardInfo = (places) => {
   `;
 };
 
+const init = () => {
+  axios
+    .get('https://raw.githubusercontent.com/hexschool/js-training/main/travelApi.json')
+    .then((res) => {
+      console.log(res);
+    });
+};
+
 const render = (payload = data) => {
   ticketCardArea.innerHTML = payload.reduce((pre, cur) => pre + cardInfo(cur), '');
   searchResultNum.innerHTML = `本次搜尋共${payload.length}筆資料`;
@@ -114,4 +122,5 @@ const dropDownSelect = (e) => {
 btnAddTicket.addEventListener('click', addTicket);
 regionSearch.addEventListener('change', dropDownSelect);
 
+init();
 render();
