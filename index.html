@@ -14,20 +14,15 @@
         <img src="https://i.imgur.com/iRssPpJ.png" alt="" />
         <img src="https://i.imgur.com/vJt0znH.png" alt="" />
       </div>
-      <form action="" class="addTicket-form">
+      <form action="" class="addTicket-form" id="addTicketForm">
         <h1 class="title">
           <span><i class="fas fa-plus-circle"></i></span>新增旅遊套票
         </h1>
         <div class="form-group">
           <div class="addTicket-input">
             <label for="ticketName">套票名稱</label>
-            <input
-              type="text"
-              id="ticketName"
-              placeholder="請填寫套票名稱"
-              name="套票名稱"
-              required
-            />
+            <input type="text" id="ticketName" placeholder="請填寫套票名稱" name="ticketName" />
+            <p class="ticket ticketName"></p>
           </div>
           <div class="alert-message">
             <p id="ticketName-message" data-message="套票名稱">
@@ -40,12 +35,13 @@
           <div class="addTicket-input">
             <label for="ticketImgUrl">圖片網址</label>
             <input
-              type="text"
+              type="url"
               id="ticketImgUrl"
               placeholder="請填寫圖片網址"
-              name="圖片網址"
+              name="ticketImgUrl"
               required
             />
+            <p class="ticket ticketImgUrl"></p>
           </div>
           <div class="alert-message">
             <p id="ticketImgUrl-message" data-message="圖片網址">
@@ -57,12 +53,13 @@
         <div class="form-group">
           <div class="addTicket-input">
             <label for="ticketRegion">景點地區</label>
-            <select id="ticketRegion" name="景點地區">
+            <select class="ticketRegion" id="ticketRegion" name="ticketRegion">
               <option value="" disabled selected hidden>請選擇景點地區</option>
               <option value="台北">台北</option>
               <option value="台中">台中</option>
               <option value="高雄">高雄</option>
             </select>
+            <p class="ticket ticketRegion"></p>
           </div>
           <div class="alert-message">
             <p id="ticketRegion-message" data-message="景點地區">
@@ -78,10 +75,11 @@
               type="number"
               id="ticketPrice"
               placeholder="請填寫套票金額"
-              name="套票金額"
+              name="ticketPrice"
               min="0"
               required
             />
+            <p class="ticket ticketPrice"></p>
           </div>
           <div class="alert-message">
             <p id="ticketPrice-message" data-message="套票金額">
@@ -97,10 +95,11 @@
               type="number"
               id="ticketNum"
               placeholder="請填寫套票組數"
-              name="套票組數"
+              name="ticketNum"
               min="1"
               required
             />
+            <p class="ticket ticketNum"></p>
           </div>
           <div class="alert-message">
             <p id="ticketNum-message" data-message="套票組數">
@@ -116,11 +115,12 @@
               type="number"
               id="ticketRate"
               placeholder="請填寫套票星級"
-              name="套票星級"
+              name="ticketRate"
               min="1"
               max="10"
               required
             />
+            <p class="ticket ticketRate"></p>
           </div>
           <div class="alert-message">
             <p id="ticketRate-message" data-message="套票星級">
@@ -133,11 +133,12 @@
           <div class="addTicket-input">
             <label for="ticketDescription">套票描述</label>
             <textarea
-              name="套票描述"
+              name="ticketDescription"
               id="ticketDescription"
               placeholder="請填寫套票描述 (限 100 字)"
               required
             ></textarea>
+            <p class="ticket ticketDescription"></p>
           </div>
           <div class="alert-message">
             <p id="ticketDescription-message" data-message="套票描述">
@@ -146,7 +147,7 @@
             </p>
           </div>
         </div>
-        <input type="button" class="addTicket-btn btn" value="新增套票" />
+        <input type="button" class="addTicket-btn btn" id="addTicketBtn" value="新增套票" />
       </form>
     </section>
     <section class="main-content">
@@ -169,6 +170,7 @@
         <img src="https://i.imgur.com/dZI8FJQ.png" alt="" />
       </div>
     </section>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./js/all.js"></script>
   </body>

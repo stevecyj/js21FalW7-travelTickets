@@ -108,6 +108,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  flex-flow: row wrap;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
@@ -450,4 +451,9 @@ body {
   .cantFind-area {
     margin-top: 0px;
   }
+}
+
+.ticket {
+  color: red;
+  margin-left: 110px;
 }
