@@ -119,15 +119,68 @@ const init = () => {
       // console.log(res);
       data = res.data.data;
       render();
+      renderChart();
     })
     .catch((err) => {
       console.log(err.response);
     });
 };
 
+// render data
 const render = (payload = data) => {
   ticketCardArea.innerHTML = payload.reduce((pre, cur) => pre + cardInfo(cur), '');
   searchResultNum.innerHTML = `本次搜尋共${payload.length}筆資料`;
+  renderChart();
+};
+
+// render chart data
+const renderChart = () => {
+  const totalObject = {};
+  data.forEach((item) => {
+    // console.log(item);
+    if (totalObject[item.area] === undefined) {
+      totalObject[item.area] = 1;
+    } else {
+      totalObject[item.area] += 1;
+    }
+  });
+  // console.log(totalObject);
+
+  const arrArea = Object.keys(totalObject);
+  // console.log(arrArea);
+
+  let arrChart = [];
+  arrArea.forEach((item) => {
+    let arrTemp = [];
+    arrTemp.push(item);
+    arrTemp.push(totalObject[item]);
+    arrChart.push(arrTemp);
+    // console.log(arrChart);
+  });
+
+  let chart = c3.generate({
+    bindto: '#chart',
+    data: {
+      columns: arrChart,
+      type: 'donut',
+      colors: {
+        台北: '#26C0C7',
+        台中: '#5151D3',
+        高雄: '#E68618',
+      },
+    },
+    size: {
+      width: 200,
+      height: 160,
+    },
+    donut: {
+      title: '套票地區比重',
+      width: 10,
+      label: {
+        show: false,
+      },
+    },
+  });
 };
 
 const addTicket = (e) => {
@@ -180,7 +233,7 @@ function btnAddTicketAction() {
   inputs.forEach((i) => {
     let errors = validate(createForm, constraints);
     // console.log(i);
-    console.log(errors);
+    // console.log(errors);
     if (errors) {
       Object.keys(errors).forEach(function (keys) {
         // console.log(keys);
